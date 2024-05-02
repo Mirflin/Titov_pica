@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import Functions.pizzeria;
 import Functions.pizza;
+import Frames.newOrderFrame;
 public class startingFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -51,6 +52,13 @@ public class startingFrame extends JFrame {
 		contentPane.add(nameOfpizzeria);
 		
 		JButton orderButton = new JButton("NEW order");
+		orderButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				frame.dispose();
+				newOrderFrame.frame.setVisible(true);
+			}
+		});
 		orderButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		orderButton.setBounds(125, 116, 122, 36);
 		contentPane.add(orderButton);

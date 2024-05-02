@@ -75,12 +75,7 @@ public class showOrdersFrame extends JFrame {
 		list.setBounds(29, 83, 323, 209);
 		contentPane.add(list);
 		
-		pizza test = new pizza(30, "top1", "top2", "top3", "ketch", 10,"da");
-		pizza test2 = new pizza(30, "top1", "top2", "top3", "ketch", 10,"net");
-		
 		ArrayList<Object> checkouts = Functions.pizzeria.getArray();
-		checkouts.add(test);
-		checkouts.add(test2);
 		
 		DefaultListModel listModel = new DefaultListModel();
 		String names = "";

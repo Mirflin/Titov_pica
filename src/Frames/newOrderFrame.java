@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Functions.pizzeria;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -13,11 +16,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.List;
 
 public class newOrderFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	public static List<Boolean> params = pizzeria.getList();
 	public static newOrderFrame frame = new newOrderFrame();
 
 	/**
@@ -51,29 +56,59 @@ public class newOrderFrame extends JFrame {
 		topping1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				params.set(2,true);
 			}
 		});
 		topping1.setBounds(10, 112, 100, 100);
 		contentPane.add(topping1);
 		
 		JLabel topping3 = new JLabel("New label");
+		topping3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				params.set(4,true);
+			}
+		});
 		topping3.setBounds(266, 112, 100, 100);
 		contentPane.add(topping3);
 		
 		JLabel topping2 = new JLabel("New label");
+		topping2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				params.set(3,true);
+			}
+		});
 		topping2.setBounds(142, 112, 100, 100);
 		contentPane.add(topping2);
 		
 		JLabel topping4 = new JLabel("New label");
+		topping4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				params.set(5,true);
+			}
+		});
 		topping4.setBounds(10, 251, 100, 100);
 		contentPane.add(topping4);
 		
 		JLabel topping5 = new JLabel("New label");
+		topping5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				params.set(6,true);
+			}
+		});
 		topping5.setBounds(142, 251, 100, 100);
 		contentPane.add(topping5);
 		
 		JLabel topping6 = new JLabel("New label");
+		topping6.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				params.set(7,true);
+			}
+		});
 		topping6.setBounds(266, 251, 100, 100);
 		contentPane.add(topping6);
 		

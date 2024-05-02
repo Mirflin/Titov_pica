@@ -10,7 +10,8 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+import Functions.pizzeria;
+import Functions.pizza;
 public class startingFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -57,9 +58,9 @@ public class startingFrame extends JFrame {
 		JButton showOrderButton = new JButton("SHOW orders\r\n");
 		showOrderButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
 				frame.dispose();
-				showOrdersFrame frame2 = new showOrdersFrame();
-				frame2.setVisible(true);
+				showOrdersFrame.frame.setVisible(true);
 			}
 		});
 		showOrderButton.setFont(new Font("Tahoma", Font.PLAIN, 13));

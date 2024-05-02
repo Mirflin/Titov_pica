@@ -6,11 +6,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JRadioButton;
+import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.Enumeration;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.JCheckBox;
 
 public class newOrderFrame2 extends JFrame {
 
@@ -21,6 +25,17 @@ public class newOrderFrame2 extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	public String getSelectedButtonText(ButtonGroup buttonGroup) {
+        for (Enumeration<AbstractButton> buttons = buttonGroup.getElements(); buttons.hasMoreElements();) {
+            AbstractButton button = buttons.nextElement();
+
+            if (button.isSelected()) {
+                return button.getText();
+            }
+        }
+
+        return null;
+    }
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -46,20 +61,20 @@ public class newOrderFrame2 extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JRadioButton cmChoose1 = new JRadioButton("20 cm");
-		cmChoose1.setBounds(6, 48, 109, 23);
+		JRadioButton cmChoose1 = new JRadioButton("20");
+		cmChoose1.setBounds(28, 51, 72, 23);
 		contentPane.add(cmChoose1);
 		
-		JRadioButton cmChoose2 = new JRadioButton("30 cm");
-		cmChoose2.setBounds(6, 86, 109, 23);
+		JRadioButton cmChoose2 = new JRadioButton("30");
+		cmChoose2.setBounds(28, 89, 72, 23);
 		contentPane.add(cmChoose2);
 		
-		JRadioButton cmChoose3 = new JRadioButton("40 cm");
-		cmChoose3.setBounds(6, 125, 109, 23);
+		JRadioButton cmChoose3 = new JRadioButton("40");
+		cmChoose3.setBounds(28, 128, 72, 23);
 		contentPane.add(cmChoose3);
 		
-		JRadioButton cmChoose4 = new JRadioButton("50 cm");
-		cmChoose4.setBounds(6, 166, 109, 23);
+		JRadioButton cmChoose4 = new JRadioButton("50");
+		cmChoose4.setBounds(28, 169, 72, 23);
 		contentPane.add(cmChoose4);
 		
 		ButtonGroup cmGroup = new ButtonGroup();
@@ -73,6 +88,7 @@ public class newOrderFrame2 extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				newOrderFrame.frame.dispose();
 				frame.dispose();
+				System.out.print(getSelectedButtonText(cmGroup));
 				startingFrame.frame.setVisible(true);
 			}
 		});
@@ -80,15 +96,25 @@ public class newOrderFrame2 extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JLabel sauce1 = new JLabel("New label");
+		sauce1.setIcon(new ImageIcon(newOrderFrame2.class.getResource("/Frames/images/ketchup.png")));
 		sauce1.setBounds(121, 28, 89, 85);
 		contentPane.add(sauce1);
 		
 		JLabel sauce2 = new JLabel("New label");
+		sauce2.setIcon(new ImageIcon(newOrderFrame2.class.getResource("/Frames/images/mayo.png")));
 		sauce2.setBounds(240, 28, 89, 85);
 		contentPane.add(sauce2);
 		
-		JLabel sauce3 = new JLabel("New label");
-		sauce3.setBounds(171, 126, 89, 85);
-		contentPane.add(sauce3);
+		JCheckBox ketchup = new JCheckBox("extra ketchup");
+		ketchup.setBounds(103, 125, 118, 23);
+		contentPane.add(ketchup);
+		
+		JCheckBox mayonaze = new JCheckBox("extra mayonaze");
+		mayonaze.setBounds(223, 125, 121, 23);
+		contentPane.add(mayonaze);
+		
+		JLabel lblNewLabel = new JLabel("Choose pizza cm:");
+		lblNewLabel.setBounds(10, 11, 89, 14);
+		contentPane.add(lblNewLabel);
 	}
 }

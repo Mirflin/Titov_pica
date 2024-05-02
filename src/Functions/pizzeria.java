@@ -8,8 +8,14 @@ import Frames.startingFrame;
 public class pizzeria {
 	public static ArrayList<Object> checkouts = new ArrayList<>();
 	public static List<Boolean> pizza_param = new ArrayList<>();
+	public static Boolean[] testing = new Boolean[7];
+	
 	public static void main(String[] args) {
-		for(int i = 0; i <= 10;i++) {
+		for(int i = 0; i <= 6;i++) {
+			testing[i] = false;
+		}
+		System.out.print("testing filled");
+		for(int i = 0; i <= 6;i++) {
 			pizza_param.add(false);
 		}
 		startingFrame start = new startingFrame();

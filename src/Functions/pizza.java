@@ -1,7 +1,7 @@
 package Functions;
 
 public class pizza {
-	int diametrs;
+	String diametrs;
 	String toping1;
 	String toping2;
 	String toping3;
@@ -9,24 +9,19 @@ public class pizza {
 	int cena = 0;
 	static String name;
 	java.util.Date date = new java.util.Date();
-	public pizza(int diametrs,String toping1,String toping2,String toping3,String sauce,int cena,String name){
+	public pizza(String diametrs,String toping1,String toping2,String toping3,String sauce,int cena){
 		this.diametrs = diametrs;
 		this.toping1 = toping1;
 		this.toping2 = toping2;
 		this.toping3 = toping3;
 		this.sauce = sauce;
 		this.cena = cena;
-		this.name = name;
 	}
 	void set_cena(int cena) {
 		this.cena = cena;
 	}
-	void set_diametrs(int diametrs) {
-		if(diametrs > 20 || diametrs < 50) {
-			this.diametrs = diametrs;
-		}else {
-			System.out.println("Nepareiz diametrs!");
-		}
+	void set_diametrs(String diametrs) {
+		this.diametrs = diametrs;
 	}
 	void set_sauce(String sauce) {
 		this.sauce = sauce;

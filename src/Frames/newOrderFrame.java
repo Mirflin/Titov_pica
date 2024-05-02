@@ -18,6 +18,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.JCheckBox;
 
 public class newOrderFrame extends JFrame {
 
@@ -25,6 +26,7 @@ public class newOrderFrame extends JFrame {
 	private JPanel contentPane;
 	public static List<Boolean> params = pizzeria.getList();
 	public static newOrderFrame frame = new newOrderFrame();
+	public static Boolean[] testing = pizzeria.testing;
 
 	/**
 	 * Launch the application.
@@ -46,7 +48,7 @@ public class newOrderFrame extends JFrame {
 	 */
 	public newOrderFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 425, 440);
+		setBounds(100, 100, 772, 413);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -55,106 +57,144 @@ public class newOrderFrame extends JFrame {
 		
 		JLabel topping1 = new JLabel("New label");
 		topping1.setIcon(new ImageIcon(newOrderFrame.class.getResource("/Frames/images/p.png")));
-		topping1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				params.set(2,true);
-			}
-		});
+		
 		topping1.setBounds(10, 112, 100, 100);
 		contentPane.add(topping1);
 		
 		JLabel topping3 = new JLabel("New label");
 		topping3.setIcon(new ImageIcon(newOrderFrame.class.getResource("/Frames/images/moza.png")));
-		topping3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				params.set(4,true);
-			}
-		});
+		
 		topping3.setBounds(266, 112, 100, 100);
 		contentPane.add(topping3);
 		
 		JLabel topping2 = new JLabel("New label");
 		topping2.setIcon(new ImageIcon(newOrderFrame.class.getResource("/Frames/images/pin.png")));
-		topping2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				params.set(3,true);
-			}
-		});
+		
 		topping2.setBounds(130, 112, 100, 100);
 		contentPane.add(topping2);
 		
 		JLabel topping4 = new JLabel("New label");
 		topping4.setIcon(new ImageIcon(newOrderFrame.class.getResource("/Frames/images/sausa.png")));
-		topping4.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				params.set(5,true);
-			}
-		});
-		topping4.setBounds(29, 251, 68, 100);
+		
+		topping4.setBounds(393, 112, 68, 100);
 		contentPane.add(topping4);
 		
 		JLabel topping5 = new JLabel("New label");
 		topping5.setIcon(new ImageIcon(newOrderFrame.class.getResource("/Frames/images/peper.png")));
-		topping5.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				params.set(6,true);
-			}
-		});
-		topping5.setBounds(130, 260, 100, 67);
+		
+		topping5.setBounds(494, 129, 100, 67);
 		contentPane.add(topping5);
 		
 		JLabel topping6 = new JLabel("New label");
 		topping6.setIcon(new ImageIcon(newOrderFrame.class.getResource("/Frames/images/peperr.png")));
-		topping6.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				params.set(7,true);
-			}
-		});
-		topping6.setBounds(266, 251, 100, 100);
+		
+		topping6.setBounds(630, 112, 100, 100);
 		contentPane.add(topping6);
 		
 		JLabel lblNewLabel_4 = new JLabel("Choose toppings");
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblNewLabel_4.setBounds(90, 11, 193, 66);
+		lblNewLabel_4.setBounds(284, 11, 193, 66);
 		contentPane.add(lblNewLabel_4);
 		
 		JButton toppingsNext = new JButton("NEXT");
 		toppingsNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				for(int i = 0; i <= 6;i++) {
+					if(testing[i] == true) {
+						params.add(true);
+					}
+					else {
+						params.add(false);
+					}
+				}
+				pizzeria.setList(params);
+				
+				frame.setVisible(false);
+				frame.dispose();
 				newOrderFrame2.frame.setVisible(true);
 			}
 		});
-		toppingsNext.setBounds(130, 367, 89, 23);
+		toppingsNext.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		
+		toppingsNext.setBounds(315, 303, 111, 40);
 		contentPane.add(toppingsNext);
 		
-		JLabel lblNewLabel = new JLabel("salami +0,5");
-		lblNewLabel.setBounds(30, 223, 80, 14);
-		contentPane.add(lblNewLabel);
+		JCheckBox salami = new JCheckBox("salami +0,5");
+		salami.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(salami.isSelected()) {
+					testing[0] = true;
+				}else {
+					testing[0] = false;
+				}
+			}
+		});
+		salami.setBounds(20, 219, 97, 23);
+		contentPane.add(salami);
 		
-		JLabel lblPineaple = new JLabel("pineaples +0,4");
-		lblPineaple.setBounds(140, 223, 80, 14);
-		contentPane.add(lblPineaple);
+		JCheckBox pineaple = new JCheckBox("pineapples +0,4");
+		pineaple.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(pineaple.isSelected()) {
+					testing[1] = true;
+				}else {
+					testing[1] = false;
+				}
+			}
+		});
+		pineaple.setBounds(130, 219, 111, 23);
+		contentPane.add(pineaple);
 		
-		JLabel lblMo = new JLabel("extra mozzarella +0,5");
-		lblMo.setBounds(272, 223, 127, 14);
-		contentPane.add(lblMo);
+		JCheckBox mozzarella = new JCheckBox("extra mozzarella +0,5");
+		mozzarella.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(mozzarella.isSelected()) {
+					testing[2] = true;
+				}else {
+					testing[2] = false;
+				}
+			}
+		});
+		mozzarella.setBounds(248, 219, 131, 23);
+		contentPane.add(mozzarella);
 		
-		JLabel lblSausages = new JLabel("sausages +0,5");
-		lblSausages.setBounds(29, 362, 80, 14);
-		contentPane.add(lblSausages);
+		JCheckBox sausages = new JCheckBox("sausages +0,5");
+		sausages.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(sausages.isSelected()) {
+					testing[3] = true;
+				}else {
+					testing[3] = false;
+				}
+			}
+		});
+		sausages.setBounds(380, 219, 97, 23);
+		contentPane.add(sausages);
 		
-		JLabel lblGreenPeper = new JLabel("green peper +0,4");
-		lblGreenPeper.setBounds(130, 338, 100, 14);
-		contentPane.add(lblGreenPeper);
+		JCheckBox greenpeper = new JCheckBox("green peper +0,4");
+		greenpeper.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(greenpeper.isSelected()) {
+					testing[4] = true;
+				}else {
+					testing[4] = false;
+				}
+			}
+		});
+		greenpeper.setBounds(494, 219, 117, 23);
+		contentPane.add(greenpeper);
 		
-		JLabel lblRedPeper = new JLabel("red peper +0,7");
-		lblRedPeper.setBounds(276, 362, 80, 14);
-		contentPane.add(lblRedPeper);
+		JCheckBox redpeper = new JCheckBox("red peper + 0,5");
+		redpeper.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(redpeper.isSelected()) {
+					testing[5] = true;
+				}else {
+					testing[5] = false;
+				}
+			}
+		});
+		redpeper.setBounds(630, 219, 111, 23);
+		contentPane.add(redpeper);
 	}
 }

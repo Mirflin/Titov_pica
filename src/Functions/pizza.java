@@ -1,6 +1,6 @@
 package Functions;
 
-public abstract class pizza {
+public class pizza {
 	int diametrs;
 	String toping1;
 	String toping2;

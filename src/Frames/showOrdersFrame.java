@@ -7,16 +7,17 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class startingFrame extends JFrame {
+public class showOrdersFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	public static startingFrame frame = new startingFrame();
-	
+	public static showOrdersFrame frame = new showOrdersFrame();
+
 	/**
 	 * Launch the application.
 	 */
@@ -35,35 +36,33 @@ public class startingFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public startingFrame() {
+	public showOrdersFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 389, 348);
+		setBounds(100, 100, 395, 357);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel nameOfpizzeria = new JLabel("Nameless pizzeria");
-		nameOfpizzeria.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		nameOfpizzeria.setBounds(97, 11, 190, 48);
-		contentPane.add(nameOfpizzeria);
+		JLabel ORDERS = new JLabel("ORDERS:");
+		ORDERS.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		ORDERS.setBounds(123, 11, 173, 61);
+		contentPane.add(ORDERS);
 		
-		JButton orderButton = new JButton("NEW order");
-		orderButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		orderButton.setBounds(125, 116, 122, 36);
-		contentPane.add(orderButton);
+		JTextArea orderTextArea = new JTextArea();
+		orderTextArea.setBounds(40, 80, 298, 201);
+		contentPane.add(orderTextArea);
 		
-		JButton showOrderButton = new JButton("SHOW orders\r\n");
-		showOrderButton.addActionListener(new ActionListener() {
+		JButton backButton = new JButton("BACK");
+		backButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				showOrdersFrame frame2 = new showOrdersFrame();
+				startingFrame frame2 = new startingFrame();
 				frame2.setVisible(true);
 			}
 		});
-		showOrderButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		showOrderButton.setBounds(125, 174, 122, 36);
-		contentPane.add(showOrderButton);
+		backButton.setBounds(10, 11, 89, 23);
+		contentPane.add(backButton);
 	}
 }

@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Functions.pizzeria;
+
 import javax.swing.JRadioButton;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
@@ -88,7 +91,8 @@ public class newOrderFrame2 extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				newOrderFrame.frame.dispose();
 				frame.dispose();
-				System.out.print(getSelectedButtonText(cmGroup));
+				int diametr = Integer.parseInt(getSelectedButtonText(cmGroup));
+				
 				startingFrame.frame.setVisible(true);
 			}
 		});
@@ -106,12 +110,34 @@ public class newOrderFrame2 extends JFrame {
 		contentPane.add(sauce2);
 		
 		JCheckBox ketchup = new JCheckBox("extra ketchup");
+		ketchup.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(ketchup.isSelected()) {
+					pizzeria.testing[7] = true;
+				}else {
+					pizzeria.testing[7] = false;
+				}
+			}
+		});
 		ketchup.setBounds(103, 125, 118, 23);
 		contentPane.add(ketchup);
 		
 		JCheckBox mayonaze = new JCheckBox("extra mayonaze");
+		mayonaze.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(mayonaze.isSelected()) {
+					pizzeria.testing[8] = true;
+				}else {
+					pizzeria.testing[8] = false;
+				}
+			}
+		});
+		
 		mayonaze.setBounds(223, 125, 121, 23);
 		contentPane.add(mayonaze);
+		ButtonGroup sauceGroup = new ButtonGroup();
+		sauceGroup.add(ketchup);
+		sauceGroup.add(mayonaze);
 		
 		JLabel lblNewLabel = new JLabel("Choose pizza cm:");
 		lblNewLabel.setBounds(10, 11, 89, 14);

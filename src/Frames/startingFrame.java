@@ -54,6 +54,10 @@ public class startingFrame extends JFrame {
 		JButton orderButton = new JButton("NEW order");
 		orderButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				for(int i = 0; i <= 6;i++) {
+					pizzeria.testing[i] = false;
+				}
+				System.out.print("testing filled");
 				frame.setVisible(false);
 				frame.dispose();
 				newOrderFrame.frame.setVisible(true);

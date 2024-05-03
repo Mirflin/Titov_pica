@@ -1,6 +1,7 @@
 package Frames;
 
 import java.awt.Component;
+import Functions.pizzeria.*;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -9,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -21,12 +23,15 @@ import java.util.ArrayList;
 import Functions.pizzeria.*;
 import Functions.*;
 import javax.swing.JList;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.event.ListSelectionEvent;
 
 public class showOrdersFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	public static showOrdersFrame frame = new showOrdersFrame();
+	public static int value;
 
 	/**
 	 * Launch the application.
@@ -72,6 +77,15 @@ public class showOrdersFrame extends JFrame {
 		contentPane.add(backButton);
 		
 		JList list = new JList();
+		list.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e) {
+				value = list.getSelectedIndex();
+				//System.out.print(((pizza) pizzeria.getArray().get(value)).checkout());
+				frame.setVisible(false);
+				frame.dispose();
+				checkoutFrame.frame.setVisible(true);
+			}
+		});
 		list.setBounds(29, 83, 323, 209);
 		contentPane.add(list);
 		

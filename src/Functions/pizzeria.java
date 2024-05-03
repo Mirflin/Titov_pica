@@ -11,7 +11,10 @@ public class pizzeria {
 	public static Boolean[] testing = new Boolean[9];
 	
 	public static void main(String[] args) {
-		
+		pizza da = new pizza("40","top1","top2","top3","sauce",10);
+		pizza net = new pizza("30","top12","top23","top34","sauce",10);
+		checkouts.add(da);
+		checkouts.add(net);
 		for(int i = 0; i <= 6;i++) {
 			pizza_param.add(false);
 		}

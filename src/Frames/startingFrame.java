@@ -20,9 +20,6 @@ public class startingFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	public static startingFrame frame = new startingFrame();
-	public static ArrayList<Object> checkouts = new ArrayList<>();
-	public static List<Boolean> pizza_param = new ArrayList<>();
-	public static Boolean[] testing = new Boolean[9];
 	
 	// Testing
 	public static pizza test = new pizza("30","Topping 1", "Topping 2","Topping 3","Test sauce",10);
@@ -46,13 +43,7 @@ public class startingFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public startingFrame() {
-		for(int i = 0; i <= 6;i++) {
-			pizza_param.add(false);
-		}
 		
-		ArrayList<Object> checkouts = pizzeria.getArray();
-		checkouts.add(pizzeria.test);
-		pizzeria.setArray(checkouts);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 389, 348);
 		contentPane = new JPanel();

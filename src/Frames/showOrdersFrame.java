@@ -82,7 +82,7 @@ public class showOrdersFrame extends JFrame {
 		list.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
 				try {
-					TimeUnit.MINUTES.sleep(2);
+					TimeUnit.SECONDS.sleep(2);
 				} catch (InterruptedException e1) {
 					e1.printStackTrace();
 				}

@@ -15,8 +15,8 @@ public class pizzeria {
 		for(int i = 0; i <= 6;i++) {
 			pizza_param.add(false);
 		}
+		checkouts.add(startingFrame.test);
 		startingFrame.frame.setVisible(true);
-		
 	}
 	
 	public static ArrayList<Object> getArray(){

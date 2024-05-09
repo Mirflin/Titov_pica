@@ -25,8 +25,8 @@ public class newOrderFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	public static List<Boolean> params = pizzeria.getList();
-	public static newOrderFrame frame = new newOrderFrame();
 	public static Boolean[] testing = pizzeria.testing;
+	public static newOrderFrame frame = new newOrderFrame();
 
 	/**
 	 * Launch the application.

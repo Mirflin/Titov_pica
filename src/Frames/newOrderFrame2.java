@@ -57,7 +57,7 @@ public class newOrderFrame2 extends JFrame {
 	 */
 	public newOrderFrame2() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 370, 269);
+		setBounds(100, 100, 441, 307);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -96,17 +96,17 @@ public class newOrderFrame2 extends JFrame {
 				startingFrame.frame.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(255, 188, 89, 23);
+		btnNewButton.setBounds(326, 234, 89, 23);
 		contentPane.add(btnNewButton);
 		
 		JLabel sauce1 = new JLabel("New label");
 		sauce1.setIcon(new ImageIcon(newOrderFrame2.class.getResource("/Frames/images/ketchup.png")));
-		sauce1.setBounds(121, 28, 89, 85);
+		sauce1.setBounds(144, 47, 89, 85);
 		contentPane.add(sauce1);
 		
 		JLabel sauce2 = new JLabel("New label");
 		sauce2.setIcon(new ImageIcon(newOrderFrame2.class.getResource("/Frames/images/mayo.png")));
-		sauce2.setBounds(240, 28, 89, 85);
+		sauce2.setBounds(267, 47, 89, 85);
 		contentPane.add(sauce2);
 		
 		JCheckBox ketchup = new JCheckBox("extra ketchup");
@@ -119,7 +119,7 @@ public class newOrderFrame2 extends JFrame {
 				}
 			}
 		});
-		ketchup.setBounds(103, 125, 118, 23);
+		ketchup.setBounds(145, 139, 118, 23);
 		contentPane.add(ketchup);
 		
 		JCheckBox mayonaze = new JCheckBox("extra mayonaze");
@@ -133,7 +133,7 @@ public class newOrderFrame2 extends JFrame {
 			}
 		});
 		
-		mayonaze.setBounds(223, 125, 121, 23);
+		mayonaze.setBounds(267, 139, 121, 23);
 		contentPane.add(mayonaze);
 		ButtonGroup sauceGroup = new ButtonGroup();
 		sauceGroup.add(ketchup);
@@ -142,5 +142,7 @@ public class newOrderFrame2 extends JFrame {
 		JLabel lblNewLabel = new JLabel("Choose pizza cm:");
 		lblNewLabel.setBounds(10, 11, 89, 14);
 		contentPane.add(lblNewLabel);
+		
+		
 	}
 }

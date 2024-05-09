@@ -20,6 +20,8 @@ import Functions.pizza;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
+
 import Functions.pizzeria.*;
 import Functions.*;
 import javax.swing.JList;
@@ -79,11 +81,18 @@ public class showOrdersFrame extends JFrame {
 		JList list = new JList();
 		list.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
+				try {
+					TimeUnit.MINUTES.sleep(2);
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}
 				value = list.getSelectedIndex();
+				list.clearSelection();
 				//System.out.print(((pizza) pizzeria.getArray().get(value)).checkout());
 				frame.setVisible(false);
 				frame.dispose();
 				checkoutFrame.frame.setVisible(true);
+				
 			}
 		});
 		list.setBounds(29, 83, 323, 209);
@@ -94,7 +103,7 @@ public class showOrdersFrame extends JFrame {
 		DefaultListModel listModel = new DefaultListModel();
 		String names = "";
 		for(int i = 1; i < checkouts.size()+1;i++) {
-			listModel.addElement(i+". "+checkouts.get(i-1));
+			listModel.addElement(i+". Order");
 		}
 		list.setModel(listModel);
 		

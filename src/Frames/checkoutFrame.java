@@ -56,7 +56,7 @@ public class checkoutFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
 				frame.dispose();
-				showOrdersFrame.frame.setVisible(true);
+				startingFrame.frame.setVisible(true);
 			}
 		});
 		BACKbutton.setBounds(10, 11, 89, 23);
